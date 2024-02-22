@@ -1,13 +1,7 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  View,
-} from 'react-native';
-import { Header, Colors } from 'react-native/Libraries/NewAppScreen';
-import { useColorScheme } from 'react-native';
+import {SafeAreaView, ScrollView, StatusBar, View} from 'react-native';
+import {Header, Colors} from 'react-native/Libraries/NewAppScreen';
+import {useColorScheme} from 'react-native';
 import Section from './components/Section';
 
 const App = () => {
@@ -27,16 +21,15 @@ const App = () => {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Header />
-        <View style={{
-          backgroundColor: isDarkMode ? Colors.black : Colors.white,
-        }}>
+        <View
+          style={{
+            backgroundColor: isDarkMode ? Colors.black : Colors.white,
+          }}>
           <Section title="My First Section">
-            Its Alive!!
-            Next steps to do something clever and complicated, or basic and easy
+            Its Alive!! Next steps to do something clever and complicated, or
+            basic and easy
           </Section>
-        <Section>
-          content with a default title
-        </Section>
+          <Section>content with a default title</Section>
         </View>
       </ScrollView>
     </SafeAreaView>
