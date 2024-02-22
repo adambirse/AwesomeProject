@@ -1,12 +1,10 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, StatusBar, View} from 'react-native';
-import {Header, Colors} from 'react-native/Libraries/NewAppScreen';
-import {useColorScheme} from 'react-native';
-import Section from './components/Section';
-import TextAndLabel from './components/TextAndLabel';
-import FlatListBasics from './components/FlatList';
-import SectionListBasics from './components/SectionList';
-import MovieList from './components/MovieList';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import HomePage from './android/pages/HomePage';
+import {StatusBar, useColorScheme} from 'react-native';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import SecondPage from './android/pages/SecondPage';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -14,39 +12,23 @@ const App = () => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+  const Stack = createNativeStackNavigator();
 
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <NavigationContainer>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <MovieList />
-          <Section title="My First Section">
-            Its Alive!! Next steps to do something clever and complicated, or
-            basic and easy
-          </Section>
-          <Section>content with a default title</Section>
-          <Section title="text and label">
-            <TextAndLabel />
-          </Section>
-          <Section title="Flat list">
-            <FlatListBasics />
-          </Section>
-          <Section title="Section list">
-            <SectionListBasics />
-          </Section>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={HomePage}
+          options={{title: 'Welcome'}}
+        />
+        <Stack.Screen name="Second" component={SecondPage} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
