@@ -1,5 +1,12 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {SafeAreaView, ScrollView, StatusBar, View} from 'react-native';
+import {
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  TextInput,
+  View,
+} from 'react-native';
 import {Header, Colors} from 'react-native/Libraries/NewAppScreen';
 import {useColorScheme} from 'react-native';
 import Section from './components/Section';
@@ -30,6 +37,15 @@ const App = () => {
             basic and easy
           </Section>
           <Section>content with a default title</Section>
+          <TextInput
+            style={{
+              height: 40,
+              margin: 10,
+              borderColor: 'gray',
+              borderWidth: 1,
+            }}
+            defaultValue="You can type in me"
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
