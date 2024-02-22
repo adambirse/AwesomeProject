@@ -1,9 +1,10 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   ScrollView,
   StatusBar,
+  Text,
   TextInput,
   View,
 } from 'react-native';
@@ -17,6 +18,8 @@ const App = () => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+
+  const [text, setText] = useState('');
 
   return (
     <SafeAreaView style={backgroundStyle}>
@@ -37,15 +40,20 @@ const App = () => {
             basic and easy
           </Section>
           <Section>content with a default title</Section>
-          <TextInput
-            style={{
-              height: 40,
-              margin: 10,
-              borderColor: 'gray',
-              borderWidth: 1,
-            }}
-            defaultValue="You can type in me"
-          />
+          <View style={{margin: 10}}>
+            <TextInput
+              style={{height: 40}}
+              placeholder="Type here to translate!"
+              onChangeText={newText => setText(newText)}
+              defaultValue={text}
+            />
+            <Text style={{padding: 10, fontSize: 42}}>
+              {text
+                .split(' ')
+                .map(word => word && '🍕')
+                .join(' ')}
+            </Text>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
