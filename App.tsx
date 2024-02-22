@@ -4,6 +4,7 @@ import {Header, Colors} from 'react-native/Libraries/NewAppScreen';
 import {useColorScheme} from 'react-native';
 import Section from './components/Section';
 import TextAndLabel from './components/TextAndLabel';
+import FlatListBasics from './components/FlatList';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -32,6 +33,7 @@ const App = () => {
           </Section>
           <Section>content with a default title</Section>
           <TextAndLabel />
+          <FlatListBasics />
         </View>
       </ScrollView>
     </SafeAreaView>
