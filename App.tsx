@@ -5,6 +5,7 @@ import {useColorScheme} from 'react-native';
 import Section from './components/Section';
 import TextAndLabel from './components/TextAndLabel';
 import FlatListBasics from './components/FlatList';
+import SectionListBasics from './components/SectionList';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -32,8 +33,15 @@ const App = () => {
             basic and easy
           </Section>
           <Section>content with a default title</Section>
-          <TextAndLabel />
-          <FlatListBasics />
+          <Section title="text and label">
+            <TextAndLabel />
+          </Section>
+          <Section title="Flat list">
+            <FlatListBasics />
+          </Section>
+          <Section title="Section list">
+            <SectionListBasics />
+          </Section>
         </View>
       </ScrollView>
     </SafeAreaView>
