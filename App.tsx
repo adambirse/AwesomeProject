@@ -6,6 +6,7 @@ import Section from './components/Section';
 import TextAndLabel from './components/TextAndLabel';
 import FlatListBasics from './components/FlatList';
 import SectionListBasics from './components/SectionList';
+import MovieList from './components/MovieList';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -28,6 +29,7 @@ const App = () => {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
+          <MovieList />
           <Section title="My First Section">
             Its Alive!! Next steps to do something clever and complicated, or
             basic and easy
